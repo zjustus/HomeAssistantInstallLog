@@ -52,6 +52,12 @@ looking at all the options, It seemed like my only choice was home assistant sup
 1. Install dependencies `sudo apt-get install jq wget curl avahi-daemon udisks2 libglib2.0-bin network-manager dbus apparmor -y`
 1. double-check `sudo apt --fix-broken install`
 1. Reboot `sudo reboot now`
+1. if using ethernet, try `ping google.com`
+    - if you are missing DNS run the following
+    - `nmcli` - take note of your main connection
+    - `sudo nmcli connection modify "{connection}" ipv4.DNS {dns server}`
+    - EX: `sudo nmcli connection modify sudo nmcli connection modify "Supervisor eno1" ipv4.DNS 192.168.1.1`
+    - reboot `sudo reboot now`
 1. Install Docker `curl -fsSL get.docker.com | sh`
 1. check docker install `docker --version`
 1. Download the latest release of Home Assistant OS `wget {latest release}`
